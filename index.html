@@ -1,19 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student-Card-App</title>
     <style>
-        *{
-            margin: 0px;
-            padding: 0px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+
+        body {
+            background: linear-gradient(135deg, #74ebd5, #9face6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        .heading {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            background-color: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            margin-bottom: 20px;
+        }
+
+        form div {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        input {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: #6c63ff;
+        }
+
+        .picbox input {
+            padding: 5px;
+            border: none;
+        }
+
+        input[type="submit"] {
+            background-color: #6c63ff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #574fd6;
+        }
+
+
+        .StudentCardBox {
+            width: 300px;
+            height: 420px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: relative;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        /* Top Banner */
+        .StudentCardBox::before {
+            content: "STUDENT CARD";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: linear-gradient(135deg, #6c63ff, #5a55d1);
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 1px;
+        }
+
+        /* Profile Image */
+        .userImg {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            margin-top: 90px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Name */
+        .userName {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        /* Info Text */
+        .userAge,
+        .userClass,
+        .userRollNo {
+            font-size: 15px;
+            color: #555;
+            margin: 6px 0;
+        }
+
+        /* Bottom Strip */
+        .StudentCardBox::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: linear-gradient(135deg, #6c63ff, #5a55d1);
+        }
+
+        /* Hover Effect */
+        .StudentCardBox:hover {
+            transform: scale(1.05);
+            transition: 0.3s ease;
+        }   
     </style>
 </head>
+
 <body>
-    <h1>Student-Card-App</h1>
-    
+    <h1 class="heading">Student-Card-App</h1>
+    <form action="">
+        <div class="namebox">
+            <label for="stuName">Name</label>
+            <input type="text" name="stuName" id="stuName" placeholder="Enter Your Name">
+        </div>
+
+        <div class="agebox">
+            <label for="stuAge">Age</label>
+            <input type="number" name="age" id="stuAge" placeholder="Enter Your Age">
+        </div>
+
+        <div class="classbox">
+            <label for="stuClass">Class</label>
+            <input type="text" name="class" id="stuClass" placeholder="Enter Your Class ">
+        </div>
+
+        <div class="rollnobox">
+            <label for="stuRollNo">Roll No</label>
+            <input type="text" name="rollNo" id="stuRollNo" placeholder="Enter Your Class Roll No">
+        </div>
+
+        <div class="picbox">
+            <label for="stuPic">Upload Picture</label>
+            <!-- <input type="file" id="stuPic" accept="image/*"> -->
+            <input type="file" id="stuPic">
+        </div>
+
+        <input type="submit" value="Generate Card">
+
+    </form>
+
+
+    <div class="StudentCardBox">
+
+    </div>
+
+
 </body>
+
+<script>
+
+    let stuName = document.querySelector("#stuName");
+    let stuAge = document.querySelector("#stuAge");
+    let stuClass = document.querySelector("#stuClass");
+    let stuRollNo = document.querySelector("#stuRollNo");
+    let stuImg = document.querySelector("#stuPic");
+    let form = document.querySelector("form");
+    let studentCardBox = document.querySelector(".StudentCardBox");
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault()
+
+        // get image file
+        let file = stuImg.files[0];
+        let imageURL = "";
+
+        if (file) {
+            imageURL = URL.createObjectURL(file);
+        }
+
+        let studentCard = `
+        <img src="${imageURL}" alt="img" class="userImg">
+
+        <p class="userName">${stuName.value}</p>
+
+        <p class="userAge">Age: ${stuAge.value}</p>
+
+        <p class="userClass">Class: ${stuClass.value}</p>
+
+        <p class="userRollNo">Roll No: ${stuRollNo.value}</p>
+    `;
+
+        // overwrite instead of append
+        studentCardBox.innerHTML = studentCard;
+    });
+</script>
+
 </html>
