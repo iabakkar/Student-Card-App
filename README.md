@@ -1,17 +1,18 @@
 # 🎓 Student Card Generator
 
-A dynamic and interactive **Student Card Generator Web App** built using **HTML, CSS, and JavaScript**. Users can enter student details, upload a profile picture, and instantly generate a stylish student ID card.
+A dynamic and interactive **Student Card Generator Web App** built using **HTML, CSS, and JavaScript**. This project allows users to enter student details, upload a profile picture, and generate a stylish student ID card dynamically using DOM manipulation.
 
 ---
 
 ## 🚀 Features
 
-- 📝 Enter Student Details
-- 👤 Upload Student Picture
+- 📝 Enter Student Information
+- 👤 Upload Student Profile Picture
 - 🎨 Stylish Student Card Design
-- ⚡ Dynamic Card Generation using DOM
-- 📥 Download Student Card
-- 💻 Responsive and Clean UI
+- ⚡ Dynamic Card Generation
+- 💻 Responsive User Interface
+- 🧠 DOM Manipulation
+- 📷 Image Preview Support
 
 ---
 
@@ -19,7 +20,7 @@ A dynamic and interactive **Student Card Generator Web App** built using **HTML,
 
 - HTML5
 - CSS3
-- JavaScript (DOM Manipulation)
+- JavaScript (DOM)
 
 ---
 
@@ -29,17 +30,17 @@ A dynamic and interactive **Student Card Generator Web App** built using **HTML,
 - Student Age
 - Student Class
 - Roll Number
-- Profile Picture
+- Student Picture
 
 ---
 
 ## 🎯 How It Works
 
-1. User enters student details
-2. User uploads an image
-3. Clicks on **Generate Card**
-4. Student card is displayed dynamically
-5. User can download the generated card
+1. User enters student details in the form
+2. User uploads a profile image
+3. Clicks on the **Generate Card** button
+4. JavaScript captures all input values
+5. A dynamic student card is generated and displayed on the screen
 
 ---
 
@@ -49,14 +50,15 @@ A dynamic and interactive **Student Card Generator Web App** built using **HTML,
 - Event Listeners
 - Form Handling
 - Template Literals
-- Image Preview
 - Dynamic HTML Rendering
+- File Input Handling
+- CSS Styling & Hover Effects
 
 ---
 
 ## ▶️ How to Run
 
-1. Download or clone the project
+1. Download or clone the repository
 2. Open the project folder
 3. Run the `index.html` file in your browser
 
@@ -67,19 +69,28 @@ A dynamic and interactive **Student Card Generator Web App** built using **HTML,
 ```bash
 📁 Student-Card-App
  ┣ 📄 index.html
- ┣ 📄 style.css
- ┣ 📄 script.js
- ┗ 📄 README.md
+ ┣ 📄 README.md
 ```
+
+---
+
+## 🎨 UI Features
+
+- Gradient Background
+- Professional Student Card Layout
+- Circular Profile Image
+- Hover Animation Effects
+- Responsive Design
 
 ---
 
 ## 🌟 Future Improvements
 
-- Add multiple student cards
-- Add PDF export
-- Add dark mode
-- Add QR code generation
+- Add Download Card Feature
+- Add Multiple Student Cards
+- Add Dark Mode
+- Add PDF Export Option
+- Add QR Code Generation
 
 ---
 
